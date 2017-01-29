@@ -1,0 +1,18 @@
+<div style="width: 80%; margin: 0 auto;">
+	<div>
+		<div class="field">
+			<h1>Todas las marcas con telefonos</h1>
+		</div>
+		<div class="row">
+			<% @brands.each do |brand|%>
+				
+				<div class="col-md-4">
+					<%= link_to (image_tag brand.logo.url(:normal)), phone_path(brand.id)  %>
+				</div>
+			<%end%>
+		</div>
+		<div class= "center-xs top-space">
+		<%= link_to "Agregar telefono", new_phone_path , class: "btn white be-blue" %>
+	</div>
+	</div>
+</div>

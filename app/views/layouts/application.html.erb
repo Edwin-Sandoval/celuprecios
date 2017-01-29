@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+   		<title>Celuprecios</title>
+	    <%= csrf_meta_tags %>
+
+	    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  	</head>
+
+	  
+	<body >
+		<%= render "parcials/navigation_menu" %>
+		<div style="<%= "display: none;" if notice.nil? and alert.nil? %>" >
+			<p class="notice"><%= notice %></p>
+		    <p class="alert"><%= alert %></p>
+		</div>
+		<div class="row "  style="margin-top: 2em; ">
+			<div class="row col-xs-2 " style="margin-top: 3em;">
+				<div class="col-xs-12 div-border-right">
+					<div class="center-xs ">
+						<h2 class="no-margin top-space ">
+							<%= image_tag "categorias.jpg" %>
+						</h2>
+					</div>
+					<div class="row around-xs total-padding "  >
+						<%= render "brands/brand" %>
+					</div>
+				</div>
+				
+			</div>
+			<div class="col-xs">
+				<div style="width: 90%; margin: 0 auto;">
+	 					<div class="row center-xs">
+							<div id="results" class="col-xs-8" ></div>
+						</div>
+					<div id="principal">
+						<%= render "parcials/login"%>
+						<%= yield %>
+					</div>
+				</div>
+			</div>
+			<div class="row col-xs-2 center-xs" style="margin-top: 3em; ">
+				<div class="col-xs-8 div-border-left">
+					<%= image_tag "Boton_de_Blogs.jpg", class: "bottom-space", style: "margin-left: 20px;", style: ""%>
+					<%= render "parcials/advertisement" %>
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>

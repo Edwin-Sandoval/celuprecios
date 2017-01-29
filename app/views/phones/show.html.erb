@@ -1,0 +1,10 @@
+<div>
+	<div class="row">
+		<% @phones.each do |phone|%>
+			<div class="col-md-3">
+				-> <%= link_to phone.name, edit_phone_path(phone.id) %> 
+			</div>
+		<%end%>
+	</div>
+	
+</div>
