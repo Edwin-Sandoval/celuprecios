@@ -34,6 +34,10 @@ gem "aasm"
 gem "will_paginate"
 
 
+gem 'aws-sdk', '~> 2' #amazon S3 storage for paperclip
+gem "paperclip"
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

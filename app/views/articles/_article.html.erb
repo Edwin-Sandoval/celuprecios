@@ -14,7 +14,7 @@
 			<%else%>
 				<%= image_tag article.user.photo.url(:mini), class: "circular" %>
 			<%end%>
-			<%= link_to article.user.name, usershow_path(article.user.name) %>
+			<%= link_to article.user.name, usershow_path(article.user.id) %>
 		</div>
 		<div class="col-xs-3 red letra-times-new-roman">
 			<% if !article.may_sivendido? %>
@@ -24,7 +24,18 @@
 	</div>
 	<%= link_to article_path(article.id), data: { turbolinks: false}  do %>
 		<div class=" top-space  no-margin">
-			<%= image_tag article.foto1.url(:normal), class: "border-5"%>
+			<% if !article.foto1_file_name.nil? %>
+				<%= image_tag article.foto1.url(:normal), class: "border-5"%>
+
+			<%elsif !article.foto2_file_name.nil? %>
+				<%= image_tag article.foto2.url(:normal), class: "border-5"%>
+
+			<%elsif !article.foto3_file_name.nil? %>
+				<%= image_tag article.foto3.url(:normal), class: "border-5"%>
+
+			<%elsif !article.foto4_file_name.nil? %>
+				<%= image_tag article.foto4.url(:normal), class: "border-5"%>
+			<%end%>
 		</div>
 		<div class="row">
 			<div class="col-xs-6 text-left letra-times-new-roman grey">

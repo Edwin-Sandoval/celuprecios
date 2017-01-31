@@ -4,8 +4,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          
-  has_attached_file :photo, styles: { normal: "200x250>", mini: "30x30>" }
+  has_attached_file   :photo,
+                      :default_url => '/assets/no-image.png',
+                      :url => ":s3_domain_url",
+                      :styles => { :normal => ["200x200!",:jpg], :mini => ["30x30!",:jpg]},
+                      :default_style => :meddium,
+                      :storage => :s3,
+                      :path => "upload/User/photo/:file_id/:style/:filename"
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
+
   has_many :articles
   has_many :publications
   has_many :comments

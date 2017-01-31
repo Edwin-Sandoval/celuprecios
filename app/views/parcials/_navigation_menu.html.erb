@@ -28,7 +28,7 @@
 			</li>
 			<% if user_signed_in? %>
 				<li class="col-xs">
-					<%= link_to "Mi perfil", usershow_path(current_user.name) %>
+					<%= link_to "Mi perfil", usershow_path(current_user.id) %>
 				</li>
 				<li class="col-xs">
 					<% if current_user.is_admin_user? %>

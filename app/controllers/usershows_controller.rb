@@ -2,7 +2,7 @@
 class UsershowsController < ApplicationController
   def show
   	#@user = User.where("name = 'Usuario XC'")
-  	@user = User.find_by(name: params[:id])
+  	@user = User.find(params[:id])
   	@comment = Comment.new
   	comment_all = Comment.where("comentador = '#{@user.id}'").ultimos
     @articulos_vendidos = @user.articles.vendidos.count

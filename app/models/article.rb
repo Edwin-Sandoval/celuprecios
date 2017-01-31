@@ -1,17 +1,46 @@
 class Article < ApplicationRecord
   
   include AASM
-  has_attached_file :foto1, styles: { normal: "560x560", mini: "429x429", peque: "130x130" }
+
+  has_attached_file   :foto1,
+                      :default_url => '/assets/no-image.png',
+                      :url => ":s3_domain_url",
+                      :styles => { :normal => ["560x560>",:jpg], :mini => ["429x429>",:jpg],:peque => ["130x130>",:jpg]},
+                      :default_style => :meddium,
+                      :storage => :s3,
+                      :path => "upload/Article/foto1/:file_id/:style/:filename"
   validates_attachment_content_type :foto1, content_type: /\Aimage\/.*\z/
 
-  has_attached_file :foto2, styles: { normal: "560x560", mini: "429x429" }
+  has_attached_file   :foto2,
+                      :default_url => '/assets/no-image.png',
+                      :url => ":s3_domain_url",
+                      :styles => { :normal => ["560x560>",:jpg], :mini => ["429x429>",:jpg],:peque => ["130x130>",:jpg]},
+                      :default_style => :meddium,
+                      :storage => :s3,
+                      :path => "upload/Article/foto2/:file_id/:style/:filename"
   validates_attachment_content_type :foto2, content_type: /\Aimage\/.*\z/
 
-  has_attached_file :foto3, styles: { normal: "560x560", mini: "429x429" }
+  has_attached_file   :foto3,
+                      :default_url => '/assets/no-image.png',
+                      :url => ":s3_domain_url",
+                      :styles => { :normal => ["560x560>",:jpg], :mini => ["429x429>",:jpg],:peque => ["130x130>",:jpg]},
+                      :default_style => :meddium,
+                      :storage => :s3,
+                      :path => "upload/Article/foto3/:file_id/:style/:filename"
   validates_attachment_content_type :foto3, content_type: /\Aimage\/.*\z/
 
-  has_attached_file :foto4, styles: { normal: "560x560", mini: "429x429" }
+  has_attached_file   :foto4,
+                      :default_url => '/assets/no-image.png',
+                      :url => ":s3_domain_url",
+                      :styles => { :normal => ["560x560>",:jpg], :mini => ["429x429>",:jpg],:peque => ["130x130>",:jpg]},
+                      :default_style => :meddium,
+                      :storage => :s3,
+                      :path => "upload/Article/foto4/:file_id/:style/:filename"
   validates_attachment_content_type :foto4, content_type: /\Aimage\/.*\z/
+
+
+
+  
   belongs_to :phone
   belongs_to :user
   belongs_to :brand

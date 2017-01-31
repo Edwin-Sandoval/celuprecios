@@ -10,11 +10,13 @@ class BrandsController < ApplicationController
 
   def create
     @brand = Brand.new(brand_params)
+
     if @brand.save
-      redirect_to @brand
+        redirect_to @brand
     else
-      render :new
+        render :new
     end
+
   end
 
   def show

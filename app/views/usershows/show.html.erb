@@ -44,6 +44,7 @@
 		        </div>
   			</div>
   			<div class="col-xs-11	row center-xs">
+  				
 		        <% if user_signed_in? && current_user.id == @user.id %>
 			       
 						<%= link_to "Editar perfil", edit_user_registration_path, class: "btn white be-blue	negrilla letra-lucida-grande", style: "width: 250px; font-size: 1.5em; margin-left: 1em;" %>
@@ -72,7 +73,7 @@
 			        </div>
 
 			        <div class="field">
-				        Facebook: <%= link_to @user.facebook %>
+				        Facebook: <%= (link_to @user.facebook.truncate(45)) unless @user.facebook.nil? %>
 				        <hr class="punteada">
 			        </div>
   				</div>

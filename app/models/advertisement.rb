@@ -1,10 +1,24 @@
 class Advertisement < ApplicationRecord
 	include AASM
-
-	has_attached_file :photo, styles: { normal: "161x205>", mini: "30x30>" }
+	has_attached_file   :photo,
+                        :default_url => '/assets/no-image.png',
+                        :url => ":s3_domain_url",
+                        :styles => { :normal => ["161x205>",:jpg], :mini => ["30x30!",:jpg]},
+                        :default_style => :meddium,
+                        :storage => :s3,
+                        :path => "upload/Advertisement/photo/:file_id/:style/:filename"
   	validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
-  	has_attached_file :cover, styles: { normal: "500x500>", mini: "130x130>" }
+
+    has_attached_file   :cover,
+                        :default_url => '/assets/no-image.png',
+                        :url => ":s3_domain_url",
+                        :styles => { :normal => ["500x500>",:jpg], :mini => ["130x130>",:jpg]},
+                        :default_style => :meddium,
+                        :storage => :s3,
+                        :path => "upload/Advertisement/cover/:file_id/:style/:filename"
   	validates_attachment_content_type :cover, content_type: /\Aimage\/.*\z/
+
+	
 	has_many :publications
 
 	aasm(:state) do
