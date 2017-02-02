@@ -66,11 +66,11 @@
 						Telefono: <%= publication.user.celular %> </br>
 						<%= publication.body %>
 					</div> 
-					<div class="col-xs-12 text-justify letra-lucida-grande red">
-						<%= link_to "Eliminar", publication, :method => :delete %>
-					</div> 
-					
-					
+					<% if user_signed_in? &&  current_user.id == publication.user.id%>
+						<div class="col-xs-12 text-justify letra-lucida-grande red">
+							<%= link_to "Eliminar", publication, :method => :delete %>
+						</div>
+					<%end%>
 				<%end%>
  			</div>
 		<%end%>

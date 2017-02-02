@@ -92,18 +92,18 @@
   	<h1 class="col-xs-12" style=" <%='margin-top: 2em;' unless user_signed_in? && current_user.id == @user.id %>">Anuncios</h1>
 
   	<div class="row col-xs-12">
-		<% @user.articles.each do |article| %>
-			<div class="col-xs vertical">
+		<% @user.articles.limit(6).each do |article| %>
+			<div class="col-xs-2 vertical">
 				<%= link_to article_path(article.id),data: { turbolinks: false} do %>
 				 	<div class="text-left  letra-lucida-grande">
 			 			<div class="letra-times-new-roman" style="font-size: 15px;">
 							<%= article.brand.name %>
 							<%= article.phone.name %>
 						</div>
-					 	<div class="circular-max">
-							<%= image_tag article.foto1.url(:peque), style: "width: 130px; height: 90px;" %>
+					 	<div >
+							<%= image_tag article.foto1.url(:peque), style: "width: 130px; height: 90px;", class: "circular" %>
 						</div>
-						<div class="letra-times-new-roman" style="font-size: 15px;">
+						<div class="letra-times-new-roman text-center" style="font-size: 15px;">
 							<% if !article.may_sivendido? %>
 								<div class="red">
 									Vendido
@@ -174,7 +174,7 @@
 		        	 		
 		        	 	</div>
 	        		<%else%>
-		        	 	<h1>No hay comentarios</h1>
+		        	 	<h1 class="letra-times-new-roman text-center col-xs-12">No hay comentarios</h1>
 		        	<%end%>
 		        </div>
 	    	</div>
@@ -220,7 +220,7 @@
 	        	 		
 	        	 	</div>
 	    	 	<%else%>
-	        	 	<h1>No hay comentarios</h1>
+	        	 	<h1 class="letra-times-new-roman text-center col-xs-12">No hay comentarios</h1>
 	        	<%end%>
 	    	</div>
 	    </div> 	

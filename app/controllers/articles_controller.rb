@@ -82,13 +82,13 @@ class ArticlesController < ApplicationController
   def photo
     @article = Article.find(params[:article])
     if params[:id] == "1"
-      @photo = @article.foto1.url
+      @photo = @article.foto1.url(:original)
     elsif params[:id] == "2"
-      @photo = @article.foto2.url
+      @photo = @article.foto2.url(:original)
     elsif params[:id] == "3"
-      @photo = @article.foto3.url
+      @photo = @article.foto3.url(:original)
     elsif params[:id] == "4"
-      @photo = @article.foto4.url
+      @photo = @article.foto4.url(:original)
     end
   end
   

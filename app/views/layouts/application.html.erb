@@ -30,8 +30,8 @@
 				<div style="width: 90%; margin: 0 auto;">
 					<div style="<%= "display: none; " if notice.nil? and alert.nil? %>" >
 						<div class="row center-xs letra-times-new-roman">
-							<p class="notice col-xs-8 "><%= notice %></p>
-					    	<p class="alert col-xs-8 "><%= alert %></p>
+							<p class="notice col-xs-8 no-margin"><%= notice %></p>
+					    	<p class="alert col-xs-8 no-margin"><%= alert %></p>
 						</div>
 					</div>
  					<div class="row center-xs">
@@ -41,7 +41,6 @@
 						<%= render "parcials/login"%>
 						<%= yield %>
 					</div>
-					
 				</div>
 			</div>
 			<div class="row col-xs-2 center-xs" style="margin-top: 3em; ">

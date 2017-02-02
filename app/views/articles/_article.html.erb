@@ -23,7 +23,7 @@
 		</div>
 	</div>
 	<%= link_to article_path(article.id), data: { turbolinks: false}  do %>
-		<div class=" top-space  no-margin">
+		<div class="slides top-space  no-margin">
 			<% if !article.foto1_file_name.nil? %>
 				<%= image_tag article.foto1.url(:normal), class: "border-5"%>
 
