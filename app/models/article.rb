@@ -50,16 +50,18 @@ class Article < ApplicationRecord
   #scope :publicados, ->{ where(state: "published") }
   scope :vendidos, ->{ where(vendido: "si") }
   #scope :ultimos, ->{ order("created_at DESC")}
-  validates :caracteristicas, length: { maximum: 280 }
-  validates :comentario, length: { maximum: 280 }
-  validates :precio, presence: true
-  validates :precio_minimo, presence: true
-  validates :estado_fisico, presence: true
-  validates :estado_funcional, presence: true
-  validates :ciudad, presence: true
-  validates :comentario, presence: true
-  validates :caracteristicas, presence: true
- 
+  validates :caracteristicas, length: { maximum: 280, message:  ": Maximo 280 caracteres" }
+  validates :comentario, length: { maximum: 280, message:  ": Maximo 280 caracteres" }
+  validates :precio, presence: { message:  ": Precio no especficado"}
+  validates :precio_minimo, presence: { message:  ": Precio minimo no especficado"}
+  validates :estado_fisico, presence: { message:  ": Estado fisico no especficado"}
+  validates :estado_funcional, presence: { message:  ": Estado funcional no especficado"}
+  validates :ciudad, presence: { message:  ": Ciudad no especficada"}
+  validates :comentario, presence: { message:  ": Comentario no especficado si no tienes, agrega simplemente 'Sin comentarios'"}
+  validates :caracteristicas, presence: { message:  ": Caracteristicas del telefono no especficados"}
+  validates :brand_id, presence: { message:  ": Especifica una marca"}
+  validates :phone_id, presence: { message:  ": Especifica un telefono"}
+
   aasm(:priority) do
     state :normal, :initial => true
     state :activo1

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170126003939) do
+ActiveRecord::Schema.define(version: 20170202231807) do
 
   create_table "advertisements", force: :cascade do |t|
     t.string   "name"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20170126003939) do
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
+    t.string   "phone",              default: "0"
   end
 
   create_table "articles", force: :cascade do |t|

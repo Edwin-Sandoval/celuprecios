@@ -10,7 +10,8 @@ class Brand < ApplicationRecord
 	
   	validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
 
-    validates :name, presence: true, uniqueness: { case_sensitive: false }
+    validates :name, presence: { message:  ": No tiene nombre" }, uniqueness: { message:  ": Marca ya existe", case_sensitive: false }
+    
   	has_many :phones
   	has_many :articles
 end

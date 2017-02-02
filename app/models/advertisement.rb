@@ -12,7 +12,7 @@ class Advertisement < ApplicationRecord
     has_attached_file   :cover,
                         :default_url => '/assets/no-image.png',
                         :url => ":s3_domain_url",
-                        :styles => { :normal => ["500x500>",:jpg], :mini => ["130x130>",:jpg]},
+                        :styles => { normal: "500x500>", mini: "130x130>"},
                         :default_style => :meddium,
                         :storage => :s3,
                         :path => "upload/Advertisement/cover/:file_id/:style/:filename"
