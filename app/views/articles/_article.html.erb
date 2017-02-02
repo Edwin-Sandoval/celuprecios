@@ -55,7 +55,11 @@
 		<div class="row  center-xs " >
 			<% article.questions.each do |question|%>
 		 		<div class="text-left col-xs-12 be-grey" style="border-radius: 15px; margin-top: 10px;">
-		 			<%= image_tag question.user.photo.url(:mini) %>
+		 			<% if question.user.photo_file_name.nil? %>
+						<%= image_tag "new_perfil_mini.png", class: "circular", style: "margin-top: 5px;"  %>
+					<%else%>
+						<%= image_tag question.user.photo.url(:mini), class: "circular" %>
+					<%end%>
 		 			<%= question.user.name %>:
 		 			<%= question.body.truncate(130)%>
 		 			<hr class="punteada no-margin">

@@ -211,7 +211,7 @@
 					<%= image_tag "contrato.jpg" %>
 				</div>
 				<div class="col-xs-9 top-space">
-					<%= link_to 'Contrato de compra y venta de Celular', download_contrato_path, style: " color: blue !important; text-decoration: underline;" %>
+					<%= link_to 'Contrato de compra y venta de Celular', download_contrato_path, style: " color: blue !important; text-decoration: underline;", data: { turbolinks: false} %>
 				</div>
 				<div class="col-xs-12">
 					Con ese contrato podras legalizar la compra o venta del telrefono  
@@ -292,7 +292,11 @@
 <div class="row border-2 center-xs ">
 	<% @questions.each do |question|%>
  		<div class="text-left col-xs-11 top-space">
- 			<%= image_tag question.user.photo.url(:mini) %>
+ 			<% if question.user.photo_file_name.nil? %>
+				<%= image_tag "new_perfil_mini.png", class: "circular"  %>
+			<%else%>
+				<%= image_tag question.user.photo.url(:mini), class: "circular" %>
+			<%end%>
  			<%= question.user.name %>:
  			<%= question.body%>
  			<hr class="punteada no-margin">

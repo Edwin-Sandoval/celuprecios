@@ -14,11 +14,11 @@ $ ->
 				console.log("No debe entrar")
 				$('#modelo').show()
 				$('#article_phone_id').html(options)
-				
 			else
 				console.log("SI debe entrar")
-				$('#article_phone_id').show()
 				$('#article_phone_id').html("<option value='nil'>No hay celulares disponibles</option>")
+				$('#modelo').show()
+				
 		$('#myBtn').click ->
 	  		console.log("boton btn!")
 	  		$('#myModal').show()

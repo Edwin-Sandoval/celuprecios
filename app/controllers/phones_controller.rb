@@ -1,11 +1,11 @@
 class PhonesController < ApplicationController
   before_action :authenticate_admin_user!, except: [:show]
   def index
-  	@brands = Brand.all.paginate(page: params[:page],per_page: 20).reorder('name DESC')
+  	@brands = Brand.all.paginate(page: params[:page],per_page: 20).order("name")
   end
 
   def show
-  	@phones = Brand.find(params[:id]).phones.paginate(page: params[:page],per_page: 20).order("created_at DESC")
+  	@phones = Brand.find(params[:id]).phones.paginate(page: params[:page],per_page: 20).order("name")
   end
 
   def edit

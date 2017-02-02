@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
   private
 	
   def setbrands
-  	@brands = Brand.all.reorder('name DESC')
+  	@brands = Brand.all.order("name")
   end
   def setadvertisements
     @advertisementsprincipal = Advertisement.where("state != 'inavilitado'")
