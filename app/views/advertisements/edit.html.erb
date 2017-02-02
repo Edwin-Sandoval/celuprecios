@@ -1,6 +1,6 @@
 <div style="width: 80%; margin: 0 auto;">
  	
-	
+	<h3 class="letra-times-new-roman text-center" style="font-size: 1.5em;"> Editar Anunicio </h3>
 	<%= form_for(@advertisement) do |f| %>
 		<% @advertisement.errors.full_messages.each do |message| %>
 			<div class="be-red  white top-space">
@@ -48,6 +48,7 @@
 		</div>
 
 		<div class="field">
+			<%= link_to "Eliminar", @advertisement,class: "btn white be-blue", :method => :delete %>
 			<%= f.submit "Guardar", class: "btn white be-blue" %>
 		</div>
 	<%end%>

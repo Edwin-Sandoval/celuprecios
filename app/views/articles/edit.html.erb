@@ -166,6 +166,7 @@
 			</div>
 
 			<div class="field">
+				<%= link_to "Eliminar", @article,class: "btn white be-blue", :method => :delete %>
 				<%= f.submit "Guardar", class: "btn white be-blue", method: :put %>
 			</div>
 		<%end%>

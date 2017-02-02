@@ -11,6 +11,13 @@ class PublicationsController < ApplicationController
 	def show
 		@publication = Publication.find(params[:id])
 	end
+	def destroy
+	   
+	    @publication = Publication.find(params[:id])
+	    if @publication.destroy
+	      redirect_to root_path
+	    end
+	  end
 
 	private
 

@@ -21,6 +21,7 @@ class BrandsController < ApplicationController
 
   def show
     @brand_articles = Brand.find(params[:id]).articles.paginate(page: params[:page],per_page: 5).order("created_at DESC")
+    @brand = Brand.find(params[:id])
   end
 
   def edit
@@ -37,9 +38,12 @@ class BrandsController < ApplicationController
   end
 
   def destroy
+    @phones = Phone.destroy_all(brand_id: params[:id])
+    
     @brand = Brand.find(params[:id])
-    @brand.destroy
-    redirect_to brands_path
+    if @brand.destroy
+      redirect_to brands_path
+    end
   end
 
   private

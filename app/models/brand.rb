@@ -12,4 +12,4 @@ class Brand < ApplicationRecord
   	validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
   	has_many :phones
   	has_many :articles
-end
+end 

@@ -11,10 +11,7 @@
 	  
 	<body >
 		<%= render "parcials/navigation_menu" %>
-		<div style="<%= "display: none;" if notice.nil? and alert.nil? %>" >
-			<p class="notice"><%= notice %></p>
-		    <p class="alert"><%= alert %></p>
-		</div>
+		
 		<div class="row "  style="margin-top: 2em; ">
 			<div class="row col-xs-2 " style="margin-top: 3em;">
 				<div class="col-xs-12 div-border-right">
@@ -31,13 +28,20 @@
 			</div>
 			<div class="col-xs">
 				<div style="width: 90%; margin: 0 auto;">
-	 					<div class="row center-xs">
-							<div id="results" class="col-xs-8" ></div>
+					<div style="<%= "display: none; " if notice.nil? and alert.nil? %>" >
+						<div class="row center-xs letra-times-new-roman">
+							<p class="notice col-xs-8 "><%= notice %></p>
+					    	<p class="alert col-xs-8 "><%= alert %></p>
 						</div>
+					</div>
+ 					<div class="row center-xs">
+						<div id="results" class="col-xs-8" ></div>
+					</div>
 					<div id="principal">
 						<%= render "parcials/login"%>
 						<%= yield %>
 					</div>
+					
 				</div>
 			</div>
 			<div class="row col-xs-2 center-xs" style="margin-top: 3em; ">

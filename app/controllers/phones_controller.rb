@@ -27,7 +27,8 @@ class PhonesController < ApplicationController
   def create
   	@phone = Phone.new(phone_params)
     if @phone.save
-      redirect_to phones_path
+      flash[:notice] = "Telefono agregado con exito"
+      redirect_to new_phone_path
     else
       render :new
     end

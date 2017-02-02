@@ -3,7 +3,7 @@ class SearchController < ApplicationController
 		@busqueda = params[:keyword]
 		palabra = "%#{@busqueda}%"
 
-		@phones = Phone.where("name LIKE ?",palabra)
+		@phones = Phone.where("name LIKE ?",palabra).limit(20)
 		#@articles = Article.joins(@phones)
 		
 		#@articles = Article.joins(:phones).where(phones: { name: 'sony 3' })

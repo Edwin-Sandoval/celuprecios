@@ -40,6 +40,8 @@ class AdvertisementsController < ApplicationController
     end
   end
   def destroy
+    @publication = Publication.find_by(advertisement_id: params[:id])
+    Publication.destroy(@publication.id)
     if Advertisement.destroy(params[:id])
       redirect_to advertisements_path
     end 
