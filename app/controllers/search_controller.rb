@@ -2,8 +2,8 @@ class SearchController < ApplicationController
 	def create
 		@busqueda = params[:keyword]
 		palabra = "%#{@busqueda}%"
-
-		@phones = Phone.where("name LIKE ?",palabra).limit(20)
+		
+		@phones = Phone.where("lower(name) LIKE ?",palabra.downcase).limit(20)
 		#@articles = Article.joins(@phones)
 		
 		#@articles = Article.joins(:phones).where(phones: { name: 'sony 3' })

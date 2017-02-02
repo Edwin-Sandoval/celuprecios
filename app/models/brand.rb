@@ -11,7 +11,7 @@ class Brand < ApplicationRecord
 
   	validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
 
-    validates :name, presence: true, uniqueness: true
+    validates :name, presence: true, uniqueness: { case_sensitive: false }
   	has_many :phones
   	has_many :articles
-end 
+end
