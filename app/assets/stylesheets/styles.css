@@ -119,6 +119,9 @@ a,a:visited{
 	background: #023059;
 }
 
+.be-red{
+	background: red;
+}
 .btn{
 	background-color: inherit;
 	border: none;
