@@ -9,8 +9,10 @@
 			</div>
 		<%end%>
 		<div class="field">
-			<%= f.label :priority, "Asignar prioridad: " %>
-			<%= select_tag(:"article[priority]", options_for_select([['Ninguna prioridad', "desactivo"],['Primera pagina', 'activo1'], ['Segunda pagina', 'activo2'],['Tercera pagina', 'activo3']], 'desactivo'))%>
+			<% if user_signed_in? && current_user.is_admin_user? %>
+				<%= f.label :priority, "Asignar prioridad: " %>
+				<%= select_tag(:"article[priority]", options_for_select([['Ninguna prioridad', "desactivo"],['Primera pagina', 'activo1'], ['Segunda pagina', 'activo2'],['Tercera pagina', 'activo3']], 'desactivo'))%>
+			<%end%>
 		</div>
 		<div class="field">
 			<%= f.label :brand_id, "Marca:" %><br />
