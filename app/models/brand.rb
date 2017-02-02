@@ -8,7 +8,6 @@ class Brand < ApplicationRecord
                         :storage => :s3,
                         :path => "upload/Brand/logo/:file_id/:style/:filename"
 	
-
   	validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
 
     validates :name, presence: true, uniqueness: { case_sensitive: false }
