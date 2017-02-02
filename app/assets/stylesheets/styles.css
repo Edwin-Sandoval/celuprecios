@@ -120,7 +120,7 @@ a,a:visited{
 }
 
 .be-red{
-	background: red;
+	background: #FF0000;
 }
 .btn{
 	background-color: inherit;
