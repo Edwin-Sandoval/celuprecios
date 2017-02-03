@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170202231807) do
+ActiveRecord::Schema.define(version: 20170203203036) do
 
   create_table "advertisements", force: :cascade do |t|
     t.string   "name"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20170202231807) do
     t.datetime "foto4_updated_at"
     t.integer  "brand_id"
     t.string   "priority",           default: "normal"
+    t.string   "celular"
     t.index ["brand_id"], name: "index_articles_on_brand_id"
     t.index ["phone_id"], name: "index_articles_on_phone_id"
     t.index ["user_id"], name: "index_articles_on_user_id"

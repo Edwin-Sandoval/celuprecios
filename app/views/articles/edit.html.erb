@@ -36,6 +36,14 @@
 				<%= f.text_field :precio_minimo, class: "from-control"%>
 			</div>
 			<div class="field", >
+				<%= f.label :ciudad, "Ciudad:" %><br />
+				<%= f.text_field :ciudad, class: "from-control"%>
+			</div>
+			<div class="field", >
+				<%= f.label :celular, "Numero telefonico de contacto" %><br />
+				<%= f.text_field :celular, class: "from-control"%>
+			</div>
+			<div class="field", >
 				<%= f.label :estado_fisico, "Estado fisico:" %><br />
 				<%= select_tag :estado_fisico, options_for_select((1..10).to_a,@article.estado_fisico), name: "article[estado_fisico]" %>
 				<%= link_to "Ver estandar", "https://es.wikipedia.org/wiki/Norma_(tecnolog%C3%ADa)"%>
@@ -160,11 +168,6 @@
 					</li>
 				</ul>
 			</div>
-			<div class="field", >
-				<%= f.label :ciudad, "Ciudad:" %><br />
-				<%= f.text_field :ciudad, class: "from-control"%>
-			</div>
-
 			<div class="field">
 				<%= link_to "Eliminar", @article,class: "btn white be-blue", :method => :delete %>
 				<%= f.submit "Guardar", class: "btn white be-blue", method: :put %>

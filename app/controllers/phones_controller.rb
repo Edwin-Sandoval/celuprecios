@@ -1,5 +1,5 @@
 class PhonesController < ApplicationController
-  before_action :authenticate_admin_user!, except: [:show]
+  before_action :authenticate_admin_user!, except: [:show,:new,:create]
   def index
   	@brands = Brand.all.paginate(page: params[:page],per_page: 20).order("name")
   end

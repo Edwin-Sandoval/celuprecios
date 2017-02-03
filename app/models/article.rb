@@ -10,6 +10,7 @@ class Article < ApplicationRecord
                       :storage => :s3,
                       :path => "upload/Article/foto1/:file_id/:style/:filename"
   validates_attachment_content_type :foto1, content_type: /\Aimage\/.*\z/
+  validates :foto1, attachment_presence: { message:  ": La primera foto es obligatoria"}
 
   has_attached_file   :foto2,
                       :default_url => '/assets/no-image.png',
@@ -58,6 +59,7 @@ class Article < ApplicationRecord
   validates :estado_funcional, presence: { message:  ": Estado funcional no especficado"}
   validates :ciudad, presence: { message:  ": Ciudad no especficada"}
   validates :comentario, presence: { message:  ": Comentario no especficado si no tienes, agrega simplemente 'Sin comentarios'"}
+  validates :celular, presence: { message:  ": Telefono no especficado si no tienes, agrega simplemente 'No tengo telefono'"}
   validates :caracteristicas, presence: { message:  ": Caracteristicas del telefono no especficados"}
   validates :brand_id, presence: { message:  ": Especifica una marca"}
   validates :phone_id, presence: { message:  ": Especifica un telefono"}

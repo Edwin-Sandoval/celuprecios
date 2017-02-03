@@ -98,9 +98,9 @@ class ArticlesController < ApplicationController
   def article_params
     if user_signed_in? 
       if current_user.is_admin_user?
-        params.require(:article).permit(:vendido,:brand_id, :phone_id, :precio, :precio_minimo, :estado_fisico, :estado_funcional, :caja, :garantia, :factura, :audifonos, :cargador, :vidriotemplado, :funda, :cambio, :efectivo, :comentario, :caracteristicas, :foto1, :foto2, :foto3, :foto4, :ciudad,:priority)
+        params.require(:article).permit(:vendido,:brand_id, :phone_id, :precio, :precio_minimo, :estado_fisico, :estado_funcional, :caja, :garantia, :factura, :audifonos, :cargador, :vidriotemplado, :funda, :cambio, :efectivo, :comentario, :caracteristicas, :foto1, :foto2, :foto3, :foto4, :ciudad,:priority,:celular)
       else
-       params.require(:article).permit(:vendido,:brand_id, :phone_id, :precio, :precio_minimo, :estado_fisico, :estado_funcional, :caja, :garantia, :factura, :audifonos, :cargador, :vidriotemplado, :funda, :cambio, :efectivo, :comentario, :caracteristicas, :foto1, :foto2, :foto3, :foto4, :ciudad)
+       params.require(:article).permit(:vendido,:brand_id, :phone_id, :precio, :precio_minimo, :estado_fisico, :estado_funcional, :caja, :garantia, :factura, :audifonos, :cargador, :vidriotemplado, :funda, :cambio, :efectivo, :comentario, :caracteristicas, :foto1, :foto2, :foto3, :foto4, :ciudad,:celular)
       end
     end
     
