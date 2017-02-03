@@ -50,7 +50,7 @@ class AdvertisementsController < ApplicationController
   private
 
   def advertisement_params
-    params.require(:advertisement).permit(:name, :photo, :body, :direccion, :url, :telefono, :slogan, :ciudad, :cover,:state)
+    params.require(:advertisement).permit(:name, :photo, :body, :direccion, :url, :telefono, :slogan, :ciudad, :cover,:state,:phone)
   end
   
   def reset_check_box 
