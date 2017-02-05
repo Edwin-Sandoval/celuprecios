@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   get 'download_pdf', to: "home#download_doc", as: 'download_contrato'
   get 'articles/photo/:id,:article', to: "articles#photo", as: 'photo_article'
   get 'search/create'
+  devise_for :users
   resources :questions
   resources :comments
-  devise_for :users
   resources :brands
   resources :phones
   resources :articles

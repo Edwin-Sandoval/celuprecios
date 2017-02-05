@@ -35,7 +35,8 @@ Rails.application.configure do
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
-
+  
+  
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
 
@@ -53,6 +54,17 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+        address: "smtp.gmail.com",
+        port: 587,
+        authentication: "plain",
+        enable_starttls_auto: true,
+        user_name: "celuprecios@gmail.com",
+        password: "celuprecios.1234"
+    }
 
 end
 

@@ -25,6 +25,8 @@ Rails.application.configure do
   # Raise exceptions instead of rendering exception templates.
   config.action_dispatch.show_exceptions = false
 
+  
+    
   # Disable request forgery protection in test environment.
   config.action_controller.allow_forgery_protection = false
   config.action_mailer.perform_caching = false
@@ -39,4 +41,15 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  config.action_mailer.default_url_options = { hots: 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+        address: "smtp.gmail.com",
+        port: 587,
+        authentication: "plain",
+        enable_starttls_auto: true,
+        user_name: "celuprecios@gmail.com",
+        password: "celuprecios.1234"
+    }
 end

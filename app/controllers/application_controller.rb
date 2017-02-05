@@ -7,12 +7,12 @@ class ApplicationController < ActionController::Base
   before_action :setadvertisements
   before_filter :allow_iframe_requests
 
-  
-
   protected
+  #evita que la mascara de godday genre error
   def allow_iframe_requests
     response.headers.delete('X-Frame-Options')
   end
+  #parametros fuertes de la gem devise
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name,:photo,:city,:celular,:facebook])
     devise_parameter_sanitizer.permit(:account_update, keys: [:name,:photo,:city,:celular,:facebook])
