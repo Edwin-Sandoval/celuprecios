@@ -2,18 +2,24 @@
 <div class="top-space">
 	
 	<div class="row">
-		<div class="col-xs-4 text-left letra-times-new-roman">
+		<div class="col-xs-4 text-left letra-times-new-roman vertical">
 			<%= link_to brand_path(article.brand.id), data: { turbolinks: false}  do %>
 				<%= article.phone.name %>
 			<%end%>
 		</div>
-		<div class="col-xs-5 last-xs text-right letra-times-new-roman">
-			<% if article.user.photo_file_name.nil? %>
-				<%= image_tag "new_perfil_mini.png", class: "circular"  %>
-			<%else%>
-				<%= image_tag article.user.photo.url(:mini), class: "circular" %>
-			<%end%>
-			<%= link_to article.user.name, usershow_path(article.user.id) %>
+		<div class="row col-xs-5 last-xs text-right letra-times-new-roman">
+      <div class="col-xs-2">
+        <% if article.user.photo_file_name.nil? %>
+            <%= image_tag "new_perfil_mini.png", class: "circular"  %>
+        <%else%>
+            <%= image_tag article.user.photo.url(:mini), class: "circular" %>
+        <%end%>
+      </div>
+      <div class="col-xs-10 vertical">
+        <%= link_to article.user.name, usershow_path(article.user.id) %>
+      </div>
+
+
 		</div>
 		<div class="col-xs-3 red letra-times-new-roman">
 			<% if !article.may_sivendido? %>
@@ -41,7 +47,7 @@
 				<%= article.ciudad %>
 			</div>
 			<div class="col-xs-6 last-xs text-right letra-times-new-roman negrilla">
-				Precio: <%= article.precio %>
+				Precio: <%= number_to_currency(article.precio, precision: 0)%>
 			</div>
 		</div>
 		<div class="text-justify letra-lucida-grande">

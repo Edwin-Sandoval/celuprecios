@@ -2,6 +2,10 @@ Rails.application.routes.draw do
  
  
 
+  get 'muestra/principal'
+
+  get 'muestra/segundo'
+
   get 'administration/index', to: 'administration#index', as: 'administration'
   get 'usershow/:id', to: 'usershows#show', as: 'usershow'
   get 'question/:id', to: 'questions#show', as: 'question'

@@ -39,7 +39,7 @@
 		</div>
 		
 		<div class="col-xs-12 field  text-justify border-5" >
-			<h4 class="no-margin letra-times-new-roman">Caracteristicas del telefono: </h3>
+			<h4 class="no-margin letra-times-new-roman">Caracteristicas del telefono: </h4>
 			<%= @article.caracteristicas.truncate(280) %>
 		</div>
 		<div class="col-xs-12 field  text-justify border-5" >
@@ -68,7 +68,7 @@
 					Precio: 
 				</div>
 				<div class="col-xs-6 ">
-					$ <%= @article.precio %>
+					<%= number_to_currency(@article.precio, precision: 0) %>
 				</div>
 			</div>
 			<div class="row col-xs-12 top-space">
@@ -76,7 +76,7 @@
 					Precio minimo:
 				</div>
 				<div class="col-xs-6">
-					$ <%= @article.precio_minimo %>
+					<%= number_to_currency(@article.precio_minimo, precision: 0)  %>
 				</div>
 			</div>
 			<div class="row col-xs-12 top-space">

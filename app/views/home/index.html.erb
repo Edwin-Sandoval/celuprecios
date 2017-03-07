@@ -54,17 +54,20 @@
 							<%else%>
 								<%= image_tag publication.user.photo.url(:mini), class: "circular" %>
 							<%end%>
-							
-							<%=publication.user.name %>
+
+              <%= link_to publication.user.name , usershow_path(publication.user.id) %>
 
 						</div>
 						<div class="col-xs-2 text-justify letra-lucida-grande">
 							<%= publication.user.city %>
 						</div>
 					</div>
-					<div class="col-xs-12 text-justify letra-lucida-grande">
+					<div class="col-xs-12 text-justify letra-lucida-grande" >
 						Telefono: <%= publication.user.celular %> </br>
-						<%= publication.body %>
+            <div style="font-size: 1.5em ">
+              <%= publication.body %>
+            </div>
+
 					</div> 
 					<% if user_signed_in? &&  current_user.id == publication.user.id%>
 						<div class="col-xs-12 text-justify letra-lucida-grande red">
