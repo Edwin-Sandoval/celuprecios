@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use sqlite3 as the database for Active Record
@@ -27,6 +28,10 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+
+gem 'nokogiri', '~> 1.8', '>= 1.8.5'
+
+
 #Gemas agregadas
 gem "devise"
 gem "paperclip"
@@ -34,7 +39,7 @@ gem "aasm"
 gem "will_paginate"
 
 
-gem 'aws-sdk', '~> 2' #amazon S3 storage for paperclip
+gem 'aws-sdk-s3' #amazon S3 storage for paperclip
 gem "paperclip"
 
 

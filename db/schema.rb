@@ -24,11 +24,11 @@ ActiveRecord::Schema.define(version: 20170204224343) do
     t.datetime "updated_at",                               null: false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
-    t.integer  "photo_file_size"
+    t.bigint   "photo_file_size"
     t.datetime "photo_updated_at"
     t.string   "cover_file_name"
     t.string   "cover_content_type"
-    t.integer  "cover_file_size"
+    t.bigint   "cover_file_size"
     t.datetime "cover_updated_at"
     t.string   "phone",              default: "0"
   end
@@ -36,43 +36,43 @@ ActiveRecord::Schema.define(version: 20170204224343) do
   create_table "articles", force: :cascade do |t|
     t.integer  "phone_id"
     t.integer  "user_id"
-    t.integer  "precio",             default: 0
-    t.integer  "precio_minimo",      default: 0
-    t.integer  "estado_fisico",      default: 0
-    t.integer  "estado_funcional",   default: 0
-    t.string   "cambio",             default: "no"
-    t.string   "caja",               default: "no"
-    t.string   "garantia",           default: "no"
-    t.string   "factura",            default: "no"
-    t.string   "audifonos",          default: "no"
-    t.string   "cargador",           default: "no"
-    t.string   "efectivo",           default: "si"
+    t.integer  "precio",                       default: 0
+    t.integer  "precio_minimo",                default: 0
+    t.integer  "estado_fisico",                default: 0
+    t.integer  "estado_funcional",             default: 0
+    t.string   "cambio",                       default: "no"
+    t.string   "caja",                         default: "no"
+    t.string   "garantia",                     default: "no"
+    t.string   "factura",                      default: "no"
+    t.string   "audifonos",                    default: "no"
+    t.string   "cargador",                     default: "no"
+    t.string   "efectivo",                     default: "si"
     t.string   "ciudad"
-    t.string   "vidriotemplado",     default: "no"
-    t.string   "funda",              default: "no"
-    t.string   "vendido",            default: "no"
+    t.string   "vidriotemplado",               default: "no"
+    t.string   "funda",                        default: "no"
+    t.string   "vendido",                      default: "no"
     t.text     "comentario"
     t.text     "caracteristicas"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
     t.string   "foto1_file_name"
     t.string   "foto1_content_type"
-    t.integer  "foto1_file_size"
+    t.integer  "foto1_file_size",    limit: 8
     t.datetime "foto1_updated_at"
     t.string   "foto2_file_name"
     t.string   "foto2_content_type"
-    t.integer  "foto2_file_size"
+    t.integer  "foto2_file_size",    limit: 8
     t.datetime "foto2_updated_at"
     t.string   "foto3_file_name"
     t.string   "foto3_content_type"
-    t.integer  "foto3_file_size"
+    t.integer  "foto3_file_size",    limit: 8
     t.datetime "foto3_updated_at"
     t.string   "foto4_file_name"
     t.string   "foto4_content_type"
-    t.integer  "foto4_file_size"
+    t.integer  "foto4_file_size",    limit: 8
     t.datetime "foto4_updated_at"
     t.integer  "brand_id"
-    t.string   "priority",           default: "normal"
+    t.string   "priority",                     default: "normal"
     t.string   "celular"
     t.index ["brand_id"], name: "index_articles_on_brand_id"
     t.index ["phone_id"], name: "index_articles_on_phone_id"
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 20170204224343) do
     t.datetime "updated_at",        null: false
     t.string   "logo_file_name"
     t.string   "logo_content_type"
-    t.integer  "logo_file_size"
+    t.bigint   "logo_file_size"
     t.datetime "logo_updated_at"
   end
 
@@ -151,7 +151,7 @@ ActiveRecord::Schema.define(version: 20170204224343) do
     t.datetime "updated_at",                                 null: false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
-    t.integer  "photo_file_size"
+    t.bigint   "photo_file_size"
     t.datetime "photo_updated_at"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
